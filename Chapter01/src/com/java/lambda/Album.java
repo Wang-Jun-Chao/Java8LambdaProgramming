@@ -7,17 +7,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * 唱片类
+ * 专辑类
  * All Rights Reserved !!!
  * Author: 王俊超
  * Date: 2015-12-03 08:26
  */
 public class Album {
-    // 唱片的名字
+    // 专辑的名字
     private String name;
-    // 唱片的曲目
+    // 专辑的曲目
     private List<Track> tracks;
-    // 唱片的作曲者
+    // 参与创作本专辑的艺术家列表
     private List<Artist> musicians;
 
     public Album(String name, List<Track> tracks, List<Artist> musicians) {
@@ -51,6 +51,11 @@ public class Album {
         return Collections.unmodifiableList(musicians);
     }
 
+    /**
+     * 获取这个专辑的主唱人员
+     *
+     * @return 专辑的主唱人员
+     */
     public Artist getMainMusician() {
         return musicians.get(0);
     }
@@ -64,7 +69,7 @@ public class Album {
     public Stream<Artist> getAllMusicians() {
         Set<Artist> result = new HashSet<>();
         musicians.forEach(artist -> {
-           artist.getMembers().forEach(result::add);
+            artist.getMembers().forEach(result::add);
         });
         return result.stream();
     }

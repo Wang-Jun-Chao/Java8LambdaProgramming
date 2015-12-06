@@ -18,6 +18,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="Chapter01" />
+    <orderEntry type="library" name="lib" level="application" />
   </component>
 </module>

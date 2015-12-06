@@ -7,16 +7,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * 作曲者类
+ * 创作音乐的个人或者团体
  * All Rights Reserved !!!
  * Author: 王俊超
  * Date: 2015-12-03 08:27
  */
 public class Artist {
-    // 作曲者名字
+    // 艺术家的名字（如果是团体就是团体名字，如果是个人就是个人名字）
     private String name;
+    // 团体成员集合，每一个元素代表一个成员，可以为空，为空表示这人是乐队成员或者是单独的个人
     private List<Artist> members;
-    // 作曲者国家
+    // 乐队或者个人来自哪里
     private String nationality;
 
     public Artist(String name, String nationality) {
@@ -45,6 +46,11 @@ public class Artist {
         return nationality;
     }
 
+    /**
+     * 判断是是否是乐队成员
+     *
+     * @return true:是乐队成员，反之false
+     */
     public boolean isSolo() {
         return members.isEmpty();
     }
